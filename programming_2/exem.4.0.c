@@ -3,7 +3,7 @@
 
 void print() {
 	int num, result, remain;
-	int bi[8] = { 0 };
+	int bi[128] = { 0 };
 
 	scanf("%d", &num);
 
@@ -11,17 +11,21 @@ void print() {
 
 	int i = 0;
 
-	while (i < 8) {
+	while (1) {
 
 		remain = result % 2;
 		result /= 2;
 
 		bi[i] = remain;
+		
+		if (result == 0) {
+			break;
+		}
 		i++;
 	}
 
 	printf("%d, ", num);
-	for (int j = 7; j >= 0; j--) {
+	for (int j = i; j >= 0; j--) {
 		printf("%d", bi[j]);
 	}
 	printf(", %o, %x", num, num);
