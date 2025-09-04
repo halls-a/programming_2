@@ -1,26 +1,30 @@
-// ÇĞ¹øÀÌ ¹®ÀÚ¿­·Î ÁÖ¾îÁö¸é ÀÔÇĞ³âµµ¸¦ Á¤¼ö·Î ¹İÈ¯ÇÏ´Â ÇÔ¼ö
+// í•™ë²ˆì´ ë¬¸ìì—´ë¡œ ì£¼ì–´ì§€ë©´ ì…í•™ë…„ë„ë¥¼ ì •ìˆ˜ë¡œ ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#define SIZE 10
 
-int num() {
+int number() {
+	
+	int result = 0, count = 3;
+	char num[20];
 
-	char number[SIZE];
-	int year = 0;
+	scanf("%s", num);
 
-	for (int i = 0; i < SIZE; i++) {
-		scanf("%c", number[i]);
-	}
 	for (int i = 0; i < 4; i++) {
-		year += (int)number[i];
-		year *= 10;
+		int n = 1;
+		for (int j = 0; j < count; j++) {
+			n *= 10;
+		}
+		result += (num[i] - '0') * n;
+		count--;
 	}
-	return year / 10;
+
+	return result;
 }
+
 
 int main() {
 
-	printf("%d", num());
+	printf("ì…í•™ ë…„ë„ : %d", number());
 
 	return 0;
 }
